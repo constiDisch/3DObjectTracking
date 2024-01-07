@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 
   // Set up region mode
   auto region_model_ptr{std::make_shared<m3t::RegionModel>(
-      "region_model", body_ptr, region_model_metafile_path)};
+      "region_model", region_model_metafile_path, body_ptr)};
 
   // Set up region modality
   auto region_modality_ptr{std::make_shared<m3t::RegionModality>(
