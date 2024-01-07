@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 # A Multi-Body Multi-Modality Multi-Camera 3D Tracker (M3T)
 # =============================================================================
 project(M3T)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Options
 # =============================================================================

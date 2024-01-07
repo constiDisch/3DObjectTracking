@@ -7,11 +7,11 @@
 #include <m3t/common.h>
 #include <m3t/loader_camera.h>
 #include <m3t/manual_detector.h>
+#include <m3t/static_detector.h>
 #include <m3t/normal_viewer.h>
 #include <m3t/region_modality.h>
 #include <m3t/renderer_geometry.h>
 #include <m3t/tracker.h>
-
 #include <Eigen/Geometry>
 #include <memory>
 
@@ -63,12 +63,15 @@ int main(int argc, char *argv[]) {
   tracker_ptr->AddOptimizer(optimizer_ptr);
 
   // Set up detector
-  auto detector_ptr{std::make_shared<m3t::ManualDetector>(
-      "detector", detector_metafile_path, optimizer_ptr, camera_ptr)};
+  //auto detector_ptr{std::make_shared<m3t::ManualDetector>(
+   //    "detector", detector_metafile_path, optimizer_ptr, camera_ptr)};
+  auto detector_ptr{std::make_shared<m3t::StaticDetector>("detector", detector_metafile_path, optimizer_ptr)};
   tracker_ptr->AddDetector(detector_ptr);
+
+  tracker_ptr->set_viewer_time(3000);
 
   // Start tracking
   if (!tracker_ptr->SetUp()) return -1;
-  if (!tracker_ptr->RunTrackerProcess(false, false)) return -1;
+  if (!tracker_ptr->RunTrackerProcess(true, true)) return -1;
   return 0;
 }

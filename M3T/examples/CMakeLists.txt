@@ -45,6 +45,13 @@ target_link_libraries(constraint_convergence PUBLIC m3t)
 add_executable(optimization_time optimization_time.cpp)
 target_link_libraries(optimization_time PUBLIC m3t)
 
+add_executable(run_on_color_camera run_on_color_camera.cpp)
+target_link_libraries(run_on_color_camera PUBLIC m3t)
+
+
+add_executable(run_on_single_image run_on_single_image.cpp)
+target_link_libraries(run_on_single_image PUBLIC m3t)
+
 if (USE_AZURE_KINECT)
     add_executable(record_camera_sequence record_camera_sequence.cpp)
     target_link_libraries(record_camera_sequence PUBLIC m3t)

@@ -13,3 +13,4 @@ doc/html
 !CMakeLists.txt
 !readme.md
 !.clang-format
+.venv

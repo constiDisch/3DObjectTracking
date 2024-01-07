@@ -377,14 +377,19 @@ bool Tracker::UpdateViewers(int iteration) {
     }
     char key = cv::waitKey(viewer_time_);
     if (key == 'd') {
+      std:: cout << "Start detection" << std::endl;
       ExecuteDetection(false);
     } else if (key == 'x') {
+      std:: cout << "Start detection with tracking" << std::endl;
       ExecuteDetection(true);
     } else if (key == 't') {
+      std:: cout << "Start tracking" << std::endl;
       StartTracking();
     } else if (key == 's') {
+      std:: cout << "Stop tracking" << std::endl;
       StopTracking();
     } else if (key == 'q') {
+      std:: cout << "Quit tracker" << std::endl;
       quit_tracker_process_ = true;
     }
   }
